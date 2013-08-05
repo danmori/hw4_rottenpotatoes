@@ -6,7 +6,7 @@ Given /the following movies exist/ do |movies_table|
   end
 end
 
-Then /the director of "(.*)" should be "(.*)"/ do |movie, director|
-   assert page.body =~ /#{movie}.+Director.+#{director}/m
-  #Movie.where(title: movie.to_s).first.title == director
+Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |title, director|
+	assert Movie.where(title: title).first.director == director
+	#assert page.body =~ /#{e1}.+Director.+#{e2}/m, "error"
 end

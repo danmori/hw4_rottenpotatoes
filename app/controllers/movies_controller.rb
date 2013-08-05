@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
     if not @director.empty?
       @movies = Movie.similar(@director)
     else
-      flash[:notice] = "The movie #{@movie.title} has no director"
+      flash[:notice] = "'#{@movie.title}' has no director info"
       redirect_to movies_path
     end
   end
